@@ -14,7 +14,7 @@ profile: 'wide_world_importers_dbt'
 # found in the "models/" directory. You probably won't need to change these!
 model-paths: [
   "models",
-  # ".tests_by_vit"
+  ".tests_by_vit"
 ]
 test-paths: ["tests"]
 
@@ -40,6 +40,6 @@ models:
       role_playing_dimensions:
         +materialized: view
 
-    staging: 
+    staging:
       +materialized: view
       +schema: staging
