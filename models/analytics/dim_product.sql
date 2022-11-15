@@ -18,9 +18,9 @@ dim_product_renamecolumn AS (
 dim_product_convertdatatype AS(
 
   SELECT
-    CAST(stock_item_id AS INTEGER)    AS product_key,
-    CAST(stock_item_name AS STRING)   AS product_name,
-    CAST(brand AS STRING)             AS brand_name
+    CAST(product_key  AS INTEGER)   AS product_key,
+    CAST(product_name AS STRING)    AS product_name,
+    CAST(brand_name   AS STRING)    AS brand_name
   FROM dim_product_renamecolumn
 )
 
