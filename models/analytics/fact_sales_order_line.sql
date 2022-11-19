@@ -22,10 +22,12 @@ fact_sales_order_line_convertdatatype AS (
     CAST (sales_order_line_key AS INTEGER )   AS sales_order_line_key,
     CAST (product_key AS INTEGER )            AS product_key,
     CAST (quantity AS INTEGER )               AS quantity,
-    CAST (unit_price AS INTEGER )             AS unit_price
+    CAST (unit_price AS NUMERIC )             AS unit_price
   FROM fact_sales_order_line_rename
 
-)
+),
+
+fact_sales_order_line_calculate_fact AS (
 
 SELECT
   sales_order_line_key,
@@ -34,3 +36,13 @@ SELECT
   unit_price,
   quantity*unit_price AS gross_amount
 FROM fact_sales_order_line_convertdatatype
+
+)
+
+SELECT
+  sales_order_line_key,
+  product_key,
+  quantity,
+  unit_price,
+  gross_amount
+FROM fact_sales_order_line_calculate_fact
