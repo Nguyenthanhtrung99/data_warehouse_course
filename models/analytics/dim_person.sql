@@ -22,9 +22,19 @@ Application_People_ConvertType AS (
     CAST(full_name AS STRING) AS full_name
   FROM Application_People_Rename
 
-)
+), Final AS (
 
 SELECT
   person_key,
   full_name
 FROM Application_People_ConvertType
+
+UNION ALL
+
+SELECT
+  0, 'Undefined'
+
+)
+
+SELECT DISTINCT *
+FROM Final

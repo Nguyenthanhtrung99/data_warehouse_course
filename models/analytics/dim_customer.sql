@@ -36,12 +36,12 @@ SELECT
   Customer.customer_key,
   Customer.customer_name,
   COALESCE(Customer.buying_group_key, 0) AS buying_group_key,
+  COALESCE(BuyingGroup.buying_group_name, 'error') AS buying_group_name,
   CASE Customer.is_on_credit_hold_boolean
     WHEN TRUE THEN 'on credit hold'
     WHEN FALSE THEN 'not on credit hold'
     ELSE 'error'
-  END AS on_credit_hold_type,
-  COALESCE(BuyingGroup.buying_group_name, 'error') AS buying_group_name
+  END AS on_credit_hold_type
 FROM sale_customer_casttype AS Customer
 LEFT JOIN dim_buying_group_source AS BuyingGroup
 USING (buying_group_key)

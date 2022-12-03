@@ -40,12 +40,12 @@ SELECT
   Product.product_name,
   COALESCE(Product.brand_name, 'Undefined') AS brand_name,
   Product.supplier_key,
+  COALESCE(Supplier.supplier_name, 'Error') AS supplier_name,
   CASE Product.is_chiller_stock_boolean
     WHEN TRUE  THEN 'Chiller Stock'
     WHEN FALSE THEN 'Not Chiller Stock'
     ELSE 'Error'
   END AS Type_Stock,
-  COALESCE(Supplier.supplier_name, 'Error') AS supplier_name
 FROM dim_product_convertdatatype AS Product
 LEFT JOIN dim_supplier_source AS Supplier
 ON Product.supplier_key = Supplier.supplier_key
