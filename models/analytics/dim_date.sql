@@ -20,7 +20,7 @@ SELECT
     ELSE 'Weekday'
   END AS Is_Weekday_Or_Weekend,
   DATE_TRUNC(`Date` , YEAR) AS Year,
-  FORMAT_DATE('%Y', `Date`) as Year_Number
+  FORMAT_DATE('%Y', `Date`) as Year_Number,
   DATE_TRUNC(`Date` , MONTH) AS Year_Month,
   FORMAT_DATE('%B', `Date`) as Month
 FROM Dim_Date_Cast_Type
