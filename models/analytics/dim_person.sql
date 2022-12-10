@@ -60,12 +60,12 @@ SELECT
   'Undefined',
   'Undefined',
   'Undefined',
-  CAST(1 AS BOOLEAN ),
+  NULL,
   'Undefined',
-  CAST(1 AS BOOLEAN ),
-  CAST(1 AS BOOLEAN ),
-  CAST(1 AS BOOLEAN ),
-  CAST(1 AS BOOLEAN ),
+  NULL,
+  NULL,
+  NULL,
+  NULL,
 
 )
 
