@@ -12,5 +12,5 @@ Packed_Type AS (
 
 )
 
-SELECT *,
+SELECT *, FARM_FINGERPRINT( CONCAT(package_type_id, is_undersupply_backordered)) AS Indicator_Key
 FROM undersupply_backordered, Packed_Type

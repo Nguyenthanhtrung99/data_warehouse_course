@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: dim_buying_group
+    columns:
+      - name: buying_group_key
+        tests:
+          - not_null
+      - name: buying_group_name
+        tests:
+          - not_null

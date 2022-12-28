@@ -86,7 +86,8 @@ SELECT
   Sales_Order_Line.picking_completed_when,
   Sales_Order_Line.quantity,
   Sales_Order_Line.unit_price,
-  Sales_Order_Line.gross_amount
+  Sales_Order_Line.gross_amount,
+  FARM_FINGERPRINT( CONCAT(Sales_Order_Line.package_type_key, Sales_Order.is_undersupply_backordered)) AS Indicator_Key
 FROM fact_sales_order_line_calculate_fact AS Sales_Order_Line
 LEFT JOIN fact_sales_order_source AS Sales_Order
 ON Sales_Order_Line.sales_order_line_key = Sales_Order.sales_order_key
